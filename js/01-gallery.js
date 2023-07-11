@@ -31,12 +31,16 @@ function onclick(event) {
  const instance = basicLightbox.create(
  `<img  width="1280" height="auto" src="${largeImageUrl}">`
 );
-instance.show()
-}
-function closeModal(event) {
-  if (event.code !== "ESCAPE") {
+  instance.show();
+  
+  galleryContainer.addEventListener("keydown", onCloseModal);
+function onCloseModal(event) {
+  if (event.code !== "Escape") {
     return
   }
-  instance.close()
+  instance.close();
 }
+}
+
+
 console.log(galleryItems);
